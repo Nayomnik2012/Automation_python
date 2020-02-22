@@ -15,5 +15,16 @@ for key in a:
 
 
 print(10)
-raise ValueError
+raise ValueError # Исключение,
 print('Dead')
+
+def func(*args):
+    return type(args)
+
+func(1, 2, 3, "abs")
+
+def fun(**kiev): # передача набора аргументов по имени
+    return print(**kiev)
+
+fun(age = 56, name = "Vasya")
+
