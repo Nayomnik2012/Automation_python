@@ -12,3 +12,8 @@ for i, value in a.items():
 
 for key in a:
     print(key, ':', a[key]) # Альтернативное решение
+
+
+print(10)
+raise ValueError
+print('Dead')
