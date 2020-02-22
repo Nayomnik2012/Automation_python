@@ -10,3 +10,5 @@ a = {"VALUE" : 1212, "DEAD": 32323, "dsad": "32321"}
 for i, value in a.items():
     print(i, type(value))
 
+for key in a:
+    print(key, ':', a[key]) # Альтернативное решение
