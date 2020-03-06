@@ -28,9 +28,11 @@ class Person:
         a = self.full_name.split()
         return a[1]
 
-    def year(self,):
-        if
-
+    def today_data(self, year2 = 2020):
+        a = year2 - self.year
+        if a < 0:
+            return "полученное число не может быть меньше даты рождения"
+        return year2 - self.year
 
 a = Person('Саша Ковальский')
 print(a.last_name())
