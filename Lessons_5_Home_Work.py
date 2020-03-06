@@ -28,7 +28,7 @@ class Person:
         a = self.full_name.split()
         return a[1]
 
-    def year(self, last = None, now = None, tobe = None):
+    def year(self,):
         if
 
 
