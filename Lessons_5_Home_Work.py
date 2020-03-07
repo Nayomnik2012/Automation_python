@@ -17,7 +17,7 @@
 import datetime
 class Person:
     def __init__(self, full_name, age = None):
-        self.full_name = full_name
+        self.full_name
         self.age = age
 
     def name(self):
