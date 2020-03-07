@@ -14,10 +14,12 @@
 # передаётся строка, состоящая из двух слов, если нет, вызывайте исключение ��
 # ** (только для продвинутых) Можете в конструкторе проверить, что в год рождения
 # меньше 2019, но больше 1900, если нет вызывайте исключение
-import datetime
+
 class Person:
     def __init__(self, full_name, age = None):
         self.full_name = full_name
+        if len(self.full_name.split()) is not 2:
+            raise NameError('Invalid name!')
         self.age = age
 
     def name(self):
