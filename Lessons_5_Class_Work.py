@@ -22,7 +22,7 @@ print(a.full_name())
 
 class Employee(Person):
     def __init__(self, name = '', surname = '', age = None, position = None, salary = 0):
-        super.__init__(name, surname, age, position) # Вписываем свойства конструктора "Родительского класса"
+        super().__init__(name, surname, age, position) # Вписываем свойства конструктора "Родительского класса"
         self.salary = salary # добавляем новое свойство конструктора в дочерний класс
 
 
@@ -32,7 +32,7 @@ class Employee(Person):
 # ITEmployee принимает
 class ITEmployee(Employee):
     def __init__(self, *args, **kwargs):
-        super.__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.skills = []
 
 if __name__ == "__main__":
@@ -49,7 +49,7 @@ class Room:
         return self.x * self.y
 
 q = Room()
-print(area(3, 3))
+print(q.area(3, 3))
 
 # ----
 

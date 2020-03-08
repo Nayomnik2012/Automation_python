@@ -57,8 +57,8 @@ print(a.last_name())
 # аргументом.
 
 class Enployee(Person):
-    def __init__(self, full_name, age = 1900, position = None, experience = None, salary = None):
-        super.__init__(full_name, age)
+    def __init__(self, full_name, age=1900, position=None, experience=None, salary=None):
+        super().__init__(full_name, age)
         self.position = position
         self.experience = experience
         if self.experience < 0:
@@ -67,6 +67,31 @@ class Enployee(Person):
         if self.salary < 0:
             raise ValueError("Число не может быть отрецательным!")
 
-    def position(self, ):
-        if self.experience < 3:
-            return ''
+    def work(self, experience, position):
+        if experience <= 3:
+            return "Junior " + position
+        elif 3 < experience <= 6:
+            return "Middle " + position
+        else:
+            return "Senior " + position
+
+    def money(self, cash):
+        return cash + self.salary
+
+a = Enployee("Alex Kovalskiy", 1900, "programmer", 6, 300)
+print(a.work(2, "programmer"))
+print(a.money(300))
+
+# ЗАДАНИЕ 3
+# ITEmployee (наследуемся от Employee)
+# 1. Реализовать метод добавления одного навыка в новое свойство skills (список) новым
+# методом add_skill (см. презентацию).
+# 2. * Реализовать метод добавления нескольких навыков в новое свойство skills (список)
+# новым методом add_skills.
+# Тут можно выбрать разные подходы: или аргумент один и он список навыков, которым вы
+# расширяете список-свойство skill, или вы принимаете неопределённое количество
+# аргументов, и все их добавляете в список-свойство skill
+
+class ITEmployee(Enployee):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
