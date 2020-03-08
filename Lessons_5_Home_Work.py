@@ -95,3 +95,8 @@ print(a.money(300))
 class ITEmployee(Enployee):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.skills = []
+
+    def add_skills(self, *new_skill):
+        return self.skills.append(*new_skill)
+
