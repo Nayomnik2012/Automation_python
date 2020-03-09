@@ -159,9 +159,9 @@ is_year_leap(2020)
 
 def triangle1(a, b, c):
     if (c >= (a + b)) or (b >= (a + c)) or (a >= (b + c)):
-        print('No')
+        return False
     else:
-        print('Yes')
+        return True
 
 triangle1(3, 3, 3)
 
