@@ -22,7 +22,7 @@ print(strings())
 def big(*args):
     a = list(set(args))
     a.sort()
-    return print(a.[1])
+    return a[1]
 big(5, 1,1, 1, 4, 7, 7, 4)
 
 # ЗАДАНИЕ № 3
@@ -32,12 +32,13 @@ big(5, 1,1, 1, 4, 7, 7, 4)
 
 def liters(a):
     a = list(a)
+
     for i in a:
         if i.isalpha():
             b = ''
             b += i
             assert b.isalpha()
-            print(b)
+            print(b, end='')
 liters('Са8ша ! * 21 . Аня Ян ............Са Пертовичь99999')
 
 # ЗАДАНИЕ № 4
