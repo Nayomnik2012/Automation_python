@@ -25,6 +25,9 @@ class Person:
         if self.age < 1900 or self.age > 2019:
             raise ValueError("Полученный возраст " + str(self.age) + " не поддерживается")
 
+    def __str__(self):
+        return f"Полное имя: {self.full_name}, Возраст: {self.age}"
+
     def name(self):
         a = self.full_name.split()
         return a[0]
@@ -67,6 +70,9 @@ class Enployee(Person):
         if self.salary < 0:
             raise ValueError("Число не может быть отрецательным!")
 
+    def __str__(self):
+        return f"Должность: {self.position}, Опит: {self.experience}, Зарплата: {self.salary}"
+
     def work(self, experience, position):
         if experience <= 3:
             return "Junior " + position
@@ -95,8 +101,39 @@ print(a.money(300))
 class ITEmployee(Enployee):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.skills = []
+        self.skill = []
 
-    def add_skills(self, *new_skill):
-        return self.skills.append(*new_skill)
+    def __str__(self):
+        return f"Новые умения: {self.skill}"
 
+    def add_skills(self, new_skill):
+        return self.skill.append(new_skill)
+
+a = ITEmployee("Alex Kovalskiy", 1900, "programmer", 6, 300)
+a.add_skills(1)
+
+# ЗАДАНИЕ 4
+# Для всех классов сделайте __str__, чтоб объекты красиво выводились на экран!
+
+# --- реализован метод __str__ во всех классах
+
+
+# ЗАДАНИЕ 5
+# Создать классы
+# 5.1. Прямоугольная площадка (пример: комната) (свойства: две стороны).
+# Методы:
+# 5.2. вычисляем площадь,
+# 5.3. вычисляем периметр.
+# 5.4. Точка на карте (свойства: X, Y).
+# Методы:
+# 5.5. Нужно вычислить расстояние до начала координат,
+# 5.6. * вычисляется расстояние между точкой и другой точкой экземпляром этого же
+# класса
+# 5.7. ** перевод в другие системы координат
+# 5.8. Студент (свойства: имя-фамилия, специальность, год начала обучения, список
+# оценок – при создании объекта, по умолчанию, пустой список).
+# Методы:
+# 5.9. Добавить новую оценку в свойство списка оценок
+# 5.10. Посчитать средний балл,
+# 5.11. Посчитать сколько лет учится уже студент.
+# 4.12. Для всех классов сделайте __str__, чтоб объекты красиво выводились на экран!
