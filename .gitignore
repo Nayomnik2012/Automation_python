@@ -27,6 +27,7 @@ share/python-wheels/
 .installed.cfg
 *.egg
 Testings.py
+Test_file.py
 MANIFEST
 
 # PyInstaller
