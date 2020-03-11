@@ -31,14 +31,9 @@ big(5, 1,1, 1, 4, 7, 7, 4)
 # Проверьте, что вы правильно закодили с помощью инструкции assert.
 
 def liters(a):
-    a = list(a)
+    result = ''.join([letter for letter in a if letter.isalpha()])
+    print(result)
 
-    for i in a:
-        if i.isalpha():
-            b = ''
-            b += i
-            assert b.isalpha()
-            print(b, end='')
 liters('Са8ша ! * 21 . Аня Ян ............Са Пертовичь99999')
 
 # ЗАДАНИЕ № 4
