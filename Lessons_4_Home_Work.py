@@ -13,7 +13,7 @@ def strings(a = 3, b = 3, с = 0):
     else:
         v = v[:-1] + '!'
     return v
-print(strings())
+
 
 # ЗАДАНИЕ № 2
 # Пишем функцию, которая выводит второе по возрастанию значение из переданных аргументов.
@@ -23,7 +23,9 @@ def big(*args):
     a = list(set(args))
     a.sort()
     return a[1]
-big(5, 1,1, 1, 4, 7, 7, 4)
+
+
+
 
 # ЗАДАНИЕ № 3
 # Напишите функцию, которая удаляет все небуквенные символы внутри строки (ограничимся
@@ -32,9 +34,14 @@ big(5, 1,1, 1, 4, 7, 7, 4)
 
 def liters(a):
     result = ''.join([letter for letter in a if letter.isalpha()])
-    print(result)
+    return result
 
-liters('Са8ша ! * 21 . Аня Ян ............Са Пертовичь99999')
+
+if __name__=="__main__":
+    print(strings())
+    print(result)
+    big(5, 1, 1, 1, 4, 7, 7, 4)
+    liters('Са8ша ! * 21 . Аня Ян ............Са Пертовичь99999')
 
 # ЗАДАНИЕ № 4
 #dsds
