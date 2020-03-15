@@ -49,3 +49,13 @@ r = requests.post(
     params=parameters,
     data=data,
     headers={'User-Agent': 'Hello'})
+
+# New Book
+parameters = {"q": "sometings"}
+data = {"title": "New book"
+        "author": "Kovalskiy"}
+r = requests.post(
+    'https://httpbin.org/get',
+    params=parameters,
+    data=data,
+    headers={'User-Agent': 'Hello'})
