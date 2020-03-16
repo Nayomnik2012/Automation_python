@@ -43,3 +43,10 @@ reg_dict_get = get_api.json()
 reg_dict_get.pop('id')
 assert data_params == reg_dict_get, "Измененныи данные не совпадают с полученными!"
 
+# Проверяете, что она есть в списке книг по GET /books/ с новыми данными.
+get_api = requests.get(base_url + "books/")
+reg_dict_get = get_api.json()
+for i in reg_dict_get:
+    for d, f in i.items():
+        if f == id_post:
+            print(i)
