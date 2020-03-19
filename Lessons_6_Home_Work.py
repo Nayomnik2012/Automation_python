@@ -22,11 +22,15 @@ assert reg_dict_post == reg_dict_get
 # Проверяете, что она есть в списке книг по запросу GET /books/
 get_all_books = requests.get(base_url + "books/")
 reg_dict_get = get_all_books.json()
-for i in reg_dict_get:
-    for a, k in i.items():
-        if k == id_post:
-            print("Книга есть в наличии!")
+def fun1(reg_dict_get):
+    for i in reg_dict_get:
+        for v, k in i.items():
+            if k == id_post:
+                return i
 
+get_dict = fun1(reg_dict_get)
+get_dict.pop('id')
+assert get_dict == data_params, "В списках книг, нет нужной книги!"
 
 # # Измените данные этой книги методом PUT/books/[id]/
 data_params = {
@@ -46,7 +50,19 @@ assert data_params == reg_dict_get, "Измененныи данные не со
 # Проверяете, что она есть в списке книг по GET /books/ с новыми данными.
 get_api = requests.get(base_url + "books/")
 reg_dict_get = get_api.json()
-for i in reg_dict_get:
-    for d, f in i.items():
-        if f == id_post:
-            print(i)
+get_dict = fun1(reg_dict_get)
+get_dict.pop('id')
+assert get_dict == data_params, "при проверке списка книг, не найдена книга с изменениями"
+
+
+# Удаляете эту книгу методом DELETE /books/[id].
+delete_api = requests.delete(base_url + "books/" + str(id_post))
+
+# Второй скрипт:
+# тоже самое с ролями. Здесь немного поинтересней, т.к. есть связка с
+# книгой, которая уже должна существовать. Создайте книгу заранее в
+# этом же скрипте, не надейтесь на книги, которые вы видите, их кто-то
+# другой может удалить.
+url_roles = "http://pulse-rest-testing.herokuapp.com/roles"
+
+
