@@ -2,21 +2,21 @@ from Lessons_4_Home_Work import strings
 import requests
 import json
 # 1) Записать в текстовый файл и вашу песню “la-la-la”.
-with open("text.txt", 'w') as new_file:
+with open("files/text.txt", 'w') as new_file:
     new_file.write(strings())
 
 
 # 2) Прочитать и вывести на экран код файла, в котором вы создавали класс Person
-with open("text.txt", 'r') as new_file:
+with open("files/text.txt", 'r') as new_file:
     print(new_file.read())
 
 
-with open("text.txt", 'r') as new_file:
+with open("files/text.txt", 'r') as new_file:
     for text in new_file:
         print(text, end='') # или text[:-1] убираем перевод строки...
 
 
-with open("text.txt", 'a', encoding="utf-8") as new_file:
+with open("files/text.txt", 'a', encoding="utf-8") as new_file:
     print("кукушка", file=new_file)
 
 
