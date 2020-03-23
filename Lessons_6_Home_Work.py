@@ -4,6 +4,8 @@
 # Создаём книгу POST /books/, вы запоминаете его id.
 import requests
 import random
+from Lessons_4_Home_Work import liters
+import smtplib, ssl
 
 base_url = "http://pulse-rest-testing.herokuapp.com/books/"
 data_params = {
@@ -113,4 +115,51 @@ print(post_api_roles.status_code)
 # кто сделал с помощью print – делают с помощью методов)
 # 2. А теперь воспользуйтесь менеджером контекста для файлов (with … as).
 
+
+# Задание 3
+# Записывает в новый файл все слова в алфавитном порядке из другого файла с
+# текстом. Каждое слово на новой строке.
+# Рядом со словом укажите сколько раз оно встречалось в тексте
+with open("files/text.txt", 'r', encoding="utf-8") as new_file:
+    for text in new_file:
+        a = text.split()
+
+a = [liters(x) for x in a]
+b = sorted(a)
+result = {i: a.count(i) for i in b}
+
+with open("files/text2.txt", 'w', encoding="utf-8") as new_file:
+    for a, v in result.items():
+        result = a + ' ' + str(v)
+        print(result, end='\n', file=new_file)
+
+# Задание 4
+# Жду от вас письмо! (слайды 14-18). Воспользуйтесь менеджером контекста
+# (with … as) (слайд 20)
+# (Не забудьте для себя понять код из официальной документации – слайд 17).
+port = 465  # для SSL подключения
+smtp_server = "smtp.gmail.com"
+sender_email = "acsk.ndu@gmail.com"  # Ваш емайл
+receiver_email = "nayomnik30@gmail.com"  # Емайл получателя
+password = input("Введите пароль и нажмите Enter: ")
+message = """\
+Subject: Test smtplib
+
+It's works! Alex Kovalskiy"""
+
+
+context = ssl.create_default_context()
+with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
+    server.login(sender_email, password)
+    server.sendmail(sender_email, receiver_email, message)
+
+# Задание 5
+# Файл имеет вид таблицы: Фамилия Имя Отдел Зарплата (В первой строке заголовки
+# колонок)
+# Посчитайте сколько отделов на фирме
+# Определите максимальную зарплату
+# Определите максимальную зарплату в каждом отделе
+# Выведите «Отдел Макс_Зарплата Фамилия_человека_с_такой_зарплатой» в
+# новый файл
+# Подсказка: используйте словари!!!
 
