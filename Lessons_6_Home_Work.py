@@ -162,5 +162,16 @@ with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
 # Выведите «Отдел Макс_Зарплата Фамилия_человека_с_такой_зарплатой» в
 # новый файл
 # Подсказка: используйте словари!!!
-
-
+file = 'files/test.csv'
+with open(file, 'r', encoding="utf-8") as new_file:
+    first_line = new_file.readline()
+    keys = first_line.split(";")[:-1]
+    emps = []  # <- создаем пустй список
+    for line in new_file:
+        values = line.split(';')[:-1]
+        d = {}
+        for i in range(len(keys)):
+            d[keys[i]] = values[i]
+        emps.append(d)  # <- заполняем его
+for i, n in emps.iteams():
+    print(n)
