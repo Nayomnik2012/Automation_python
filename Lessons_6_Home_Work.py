@@ -173,5 +173,5 @@ with open(file, 'r', encoding="utf-8") as new_file:
         for i in range(len(keys)):
             d[keys[i]] = values[i]
         emps.append(d)  # <- заполняем его
-for i, n in emps.iteams():
+for i in emps:
     print(n)
