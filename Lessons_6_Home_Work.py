@@ -173,5 +173,9 @@ with open(file, 'r', encoding="utf-8") as new_file:
         for i in range(len(keys)):
             d[keys[i]] = values[i]
         emps.append(d)  # <- заполняем его
+deps = [emp["Department"] for emp in emps]
+print(len(list(set(deps))))
+deps = [emp["salary"] for emp in emps]
+print(max(deps))
 for i in emps:
-    print(n)
+    print(i.values())
