@@ -140,13 +140,12 @@ with open("files/text2.txt", 'w', encoding="utf-8") as new_file:
 port = 465  # для SSL подключения
 smtp_server = "smtp.gmail.com"
 sender_email = "acsk.ndu@gmail.com"  # Ваш емайл
-receiver_email = "nayomnik30@gmail.com"  # Емайл получателя
+receiver_email = "el.piankova@gmail.com"  # Емайл получателя
 password = input("Введите пароль и нажмите Enter: ")
 message = """\
 Subject: Test smtplib
 
 It's works! Alex Kovalskiy"""
-
 
 context = ssl.create_default_context()
 with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
@@ -159,8 +158,7 @@ with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
 # Посчитайте сколько отделов на фирме
 # Определите максимальную зарплату
 # Определите максимальную зарплату в каждом отделе
-# Выведите «Отдел Макс_Зарплата Фамилия_человека_с_такой_зарплатой» в
-# новый файл
+# Выведите «Отдел Макс_Зарплата Фамилия_человека_с_такой_зарплатой» в новый файл
 # Подсказка: используйте словари!!!
 file = 'files/test.csv'
 with open(file, 'r', encoding="utf-8") as new_file:
@@ -174,8 +172,8 @@ with open(file, 'r', encoding="utf-8") as new_file:
             d[keys[i]] = values[i]
         emps.append(d)  # <- заполняем его
 deps = [emp["Department"] for emp in emps]
-print(len(list(set(deps))))
-deps = max([emp["salary"] for emp in emps]) # Максимальная ЗП с генератором списка
+print(len(list(set(deps))), ' Количество отделов')
+deps = max([emp["salary"] for emp in emps]) # Максимальная ЗП среди отделов с генератором списка
 
 max_level = 0 # Перебор в ручную, максимальной ЗП
 for d in emps:
@@ -197,3 +195,25 @@ for dep in emps: #
         max_salary_in_department[dep['Department']] = int(dep['salary'])
 print(max_salary_in_department)
 
+# Выведите «Отдел Макс_Зарплата Фамилия_человека_с_такой_зарплатой»
+info_max_salary = dict.fromkeys(keys, 0)
+print(info_max_salary)
+for salary in emps: #
+    if int(salary['salary']) > info_max_salary['salary']:
+        info_max_salary['Last_name'] = salary['Last_name']
+        info_max_salary['Name'] = salary['Name']
+        info_max_salary['Department'] = salary['Department']
+        info_max_salary['salary'] = int(salary['salary'])
+print(info_max_salary)
+
+def read_file(file):
+    with open(file, 'r') as new_file:
+        first_line = new_file.readline()
+        return first_line
+
+info_max_salary = [i for i in info_max_salary.values()]
+new_sring = ' '.join(str(x) for x in info_max_salary).replace(' ', ';') + ';'
+
+with open("files/text.csv", 'w', encoding="utf-8") as new_file:
+    new_file.write(read_file("files/test.csv"))
+    new_file.write(new_sring)
