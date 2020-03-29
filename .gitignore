@@ -26,7 +26,6 @@ share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-Testings.py
 Test_file.py
 MANIFEST
 
