@@ -33,4 +33,3 @@ for role in roles:
         max_level_in_types[role["type"]] = role["level"]
 print(max_level_in_types)
 
-#
