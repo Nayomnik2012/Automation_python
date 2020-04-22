@@ -2,6 +2,7 @@
 import unittest
 from HtmlTestRunner import HTMLTestRunner
 
+test_results = "testResults/"
 
 class OurTestCase(unittest.TestCase):
 
@@ -13,4 +14,4 @@ class OurTestCase(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    unittest.main(verbosity=2, testRunner=HTMLTestRunner(output="./"))
+    unittest.main(verbosity=2, testRunner=HTMLTestRunner(output=test_results))
